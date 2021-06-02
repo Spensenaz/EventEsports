@@ -1,0 +1,57 @@
+<head>
+    {% load static %}
+    <link rel="stylesheet"  href="{%  static  'css/style.css'  %}">
+    <title>Dota 2 Page</title>
+</head>
+    
+
+<nav class="navbar">
+    <div class="container-fluid">
+        <div class="navbar-header">
+            <a class="navbar-valorant" href="{% url 'valorant' %}">Valorant</a>
+            <a class="navbar-lol" href="{% url 'lol' %}">League of Legends</a>
+            <a class="navbar-siege" href="{% url 'siege' %}">Rainbow 6 Siege</a>
+            <a class="navbar-csgo" href="{% url 'csgo' %}">CS GO</a>
+        </div>
+    </div>
+</nav>
+
+<br><br><br>
+
+{% load static %}
+<ul class="teams">
+    {% for team in dotaTeamDatas %}
+    <li>
+        {% if team.image_url != null %}
+        <img src={{team.image_url}} alt="{{team.name}} image" width="20" height="20"></img>
+        {% else %}
+        <img src="{% static 'images/dota2logo.png' %}" alt="{{team.name}} image" width="20" height="20"></img>
+        {% endif %}
+        {{team.name}}
+    </li>
+    {% endfor %}
+</ul>
+
+
+<ul class="matches">
+    {% for match in dotaMatchDatas %}
+        <li>
+            {% if match.opponent1_image_url != null %}
+                <img src = {{match.opponent1_image_url}} alt = "{{match.opponent1_name}} image" width="20" 
+                height="20" ></img>
+            {% else %}
+                <img src ="{% static 'images/dota2logo.png' %}" alt = "{{match.opponent1_name}} image" width="20" 
+                height="20" ></img>
+            {% endif %}
+            {{match.opponent1_name}} vs 
+            {% if match.opponent2_image_url != null %}
+                <img src = {{match.opponent2_image_url}} alt = "{{match.opponent2_name}} image" width="20" 
+                height="20" ></img>
+            {% else %}
+                <img src ="{% static 'images/dota2logo.png' %}" alt = "{{match.opponent2_name}} image" width="20" 
+                height="20" ></img>
+            {% endif %}
+            {{match.opponent2_name}}
+        </li>
+    {% endfor %}
+    </ul>

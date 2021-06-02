@@ -1,0 +1,73 @@
+<style>
+table, th, td {
+  border: 1px solid black;
+}
+
+ul {
+    display: inline-block;
+}
+
+li {
+    list-style-type: none;
+}
+
+</style>
+{% load static %}
+<ul class="teams">
+{% for team in teamDatas %}
+    <li>
+        {% if team.image_url != null %}
+        <img src = {{team.image_url}} alt = "{{team.name}} image" width="20" 
+        height="20" ></img>
+        {% elif team.current_videogame_slug == 'league-of-legends' %}
+        <img src ="{% static 'images/LOLlogo.png' %}" alt = "{{team.name}} image" width="20" 
+        height="20" ></img>
+        {% elif team.current_videogame_slug == 'cs-go' %}
+        <img src ="{% static 'images/csgologo.png' %}" alt = "{{team.name}} image" width="20" 
+        height="20" ></img>
+        {% elif team.current_videogame_slug == 'valorant' %}
+        <img src ="{% static 'images/valorantlogo.png' %}" alt = "{{team.name}} image" width="20" 
+        height="20" ></img>
+        {% elif team.current_videogame_slug == 'r6-siege' %}
+        <img src ="{% static 'images/siegelogo.jpeg' %}" alt = "{{team.name}} image" width="20" 
+        height="20" ></img>
+        {% elif team.current_videogame_slug == 'dota-2' %}
+        <img src ="{% static 'images/dota2logo.png' %}" alt = "{{team.name}} image" width="20" 
+        height="20" ></img>
+        {% endif %}
+        {{team.name}}
+    </li>
+{% endfor %} 
+</ul>
+
+<ul class="matches">
+{% for match in matchDatas %}
+    <li>
+        {% if match.opponent1_image_url != null %}
+            <img src = {{match.opponent1_image_url}} alt = "{{match.opponent1_name}} image" width="20" 
+            height="20" ></img>
+        {% elif match.videogame_slug == 'league-of-legends' %}
+            <img src ="{% static 'images/LOLlogo.png' %}" alt = "{{team.name}} image" width="20" 
+            height="20" ></img>
+        {% elif match.videogame_slug == 'cs-go' %}
+            <img src ="{% static 'images/csgologo.png' %}" alt = "{{team.name}} image" width="20" 
+            height="20" ></img>
+        {% elif match.videogame_slug == 'valorant' %}
+            <img src ="{% static 'images/valorantlogo.png' %}" alt = "{{team.name}} image" width="20" 
+            height="20" ></img>
+        {% elif match.videogame_slug == 'r6-siege' %}
+            <img src ="{% static 'images/siegelogo.jpeg' %}" alt = "{{team.name}} image" width="20" 
+            height="20" ></img>
+        {% elif match.videogame_slug == 'dota-2' %}
+            <img src ="{% static 'images/dota2logo.png' %}" alt = "{{team.name}} image" width="20" 
+            height="20" ></img>
+        {% endif %}
+        {{match.opponent1_name}} vs 
+        {% if match.opponent2_image_url != null %}
+            <img src = {{match.opponent2_image_url}} alt = "{{match.opponent2_name}} image" width="20" 
+            height="20" ></img>
+        {% endif %}
+        {{match.opponent2_name}}
+    </li>
+{% endfor %}
+</ul>

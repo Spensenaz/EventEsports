@@ -1,0 +1,109 @@
+<head>
+    {% load static %}
+    <link rel="stylesheet" href="{%  static  'css/style.css'  %}">
+    <title>Valorant Page</title>
+</head>
+
+<nav class="navbar">
+    <div class="container-fluid">
+        <div class="navbar-header">
+            <a class="navbar-dota2" href="{% url 'dota2' %}">Dota 2</a>
+            <a class="navbar-lol" href="{% url 'lol' %}">League of Legends</a>
+            <a class="navbar-siege" href="{% url 'siege' %}">Rainbow 6 Siege</a>
+            <a class="navbar-csgo" href="{% url 'csgo' %}">CS GO</a>
+        </div>
+    </div>
+</nav>
+
+
+
+<div class="pageContent">
+    <br><br><br>
+<div class="sidebar"></div>
+<div class="sidebar2"></div>
+{% load static %}
+<ul class="teams">
+    {% for team in valorantTeamDatas %}
+    <li>
+        {% if team.image_url != null %}
+        <img src={{team.image_url}} alt="{{team.name}} image" width="20" height="20"></img>
+        {% else %}
+        <img src="{% static 'images/valorantlogo.png' %}" alt="{{team.name}} image" width="20" height="20"></img>
+        {% endif %}
+        {{team.name}}
+    </li>
+    {% endfor %}
+</ul>
+    {% for match in valorantLiveMatchDatas %}
+    <table>
+        <tbody>
+            <tr class="teamsRow">
+                <td class="firstTeam">
+                    {{match.opponent1_name}}
+                    {% if match.opponent1_image_url != null %}
+                    <img src={{match.opponent1_image_url}} alt="{{match.opponent1_name}} image" width="30"
+                        height="30"></img>
+                    {% else %}
+                    <img src="{% static 'images/valorantlogo.png' %}" alt="{{match.opponent1_name}} image" width="30"
+                        height="30"></img>
+                    {% endif %}
+                </td>
+                <td class="vs"> vs </td>
+                <td class="secondTeam">
+                    {% if match.opponent2_image_url != null %}
+                    <img src={{match.opponent2_image_url}} alt="{{match.opponent2_name}} image" width="30"
+                        height="30"></img>
+                    {% else %}
+                    <img src="{% static 'images/valorantlogo.png' %}" alt="{{match.opponent2_name}} image" width="30"
+                        height="30"></img>
+                    {% endif %}
+                    {{match.opponent2_name}}
+                </td>
+            </tr>
+            <tr>
+                <td class="timeUntil">
+                    Live!
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    {% endfor %}
+    {% for match in valorantUpcomingMatchDatas %}
+    <table>
+        <tbody>
+            <tr class="teamsRow">
+                <td class="firstTeam">
+                    {{match.opponent1_name}}
+                    {% if match.opponent1_image_url != null %}
+                    <img src={{match.opponent1_image_url}} alt="{{match.opponent1_name}} image" width="30"
+                        height="30"></img>
+                    {% else %}
+                    <img src="{% static 'images/valorantlogo.png' %}" alt="{{match.opponent1_name}} image" width="30"
+                        height="30"></img>
+                    {% endif %}
+                </td>
+                <td class="vs"> vs </td>
+                <td class="secondTeam">
+                    {% if match.opponent2_image_url != null %}
+                    <img src={{match.opponent2_image_url}} alt="{{match.opponent2_name}} image" width="30"
+                        height="30"></img>
+                    {% else %}
+                    <img src="{% static 'images/valorantlogo.png' %}" alt="{{match.opponent2_name}} image" width="30"
+                        height="30"></img>
+                    {% endif %}
+                    {{match.opponent2_name}}
+                </td>
+            </tr>
+            <tr>
+                <td class="timeUntil">
+                    {{match.formatted_begins_in}}
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    {% endfor %}
+
+
+<br>
+
+</div>
