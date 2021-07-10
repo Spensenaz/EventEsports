@@ -45,3 +45,19 @@ class Match(models.Model):
     begins_at = models.CharField
     begins_in = models.DateTimeField
     formatted_begins_in = models.CharField
+    score_team_1 = models.IntegerField
+    score_team_2 = models.IntegerField
+
+class Tournament(models.Model):
+    begin_at: models.DateTimeField
+    end_at: models.DateTimeField
+    image_url: models.CharField
+    league_name: models.CharField
+    league_url: models.CharField
+    serie_name: models.CharField
+    name: models.CharField
+    slug: models.CharField
+    tier: models.CharField
+    id: models.IntegerField
+    begins_in: models.DateTimeField
+    standings: ArrayField

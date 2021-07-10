@@ -1,0 +1,90 @@
+body{
+    margin: 0 !important;
+}
+.navbar a{
+    float: left;
+  color: #f2f2f2;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+  font-size: 17px;
+    }
+
+ul{
+    float:left;
+}
+
+a:hover{
+    color: rgb(255, 255, 255);
+    background-color: crimson;
+}
+
+.navbar{
+    position: fixed;
+    width: 100%;
+    background-color: white;
+    padding: 0;
+    margin: 0;
+    overflow: hidden;
+}
+
+table {
+    vertical-align: top;
+    background-color: #dddddd;
+    margin-bottom: 10px;
+    border: 1px solid black;
+    margin-right: 0;
+    margin-left: auto;
+    float: right;
+}
+
+.vs{
+    padding: 8px;
+    text-align: center;
+}
+
+.firstTeam{
+    width: 200px;
+    padding-right: 4px;
+    padding-left: 16px;
+    padding: 8px;
+    text-align: right;
+}
+
+.secondTeam{
+    width: 200px;
+    padding-right: 16px;
+    padding-left: 4px;
+    padding: 8px;
+    text-align: left;
+}
+
+.timeUntil{
+    text-align: left;
+    padding: 5px;
+    font-size: 12px;
+}
+
+.matches{
+    vertical-align: top;
+    width: 50%;
+    display: flex;
+}
+
+.sidebar{
+    width:300px;
+    margin: 0;
+    visibility: visible;
+    box-sizing: border-box;
+    height: 100%;
+    float:left;
+}
+
+.sidebar2{
+    width:300px;
+    margin: 0;
+    visibility: visible;
+    box-sizing: border-box;
+    height: 100%;
+    float:right;
+}
